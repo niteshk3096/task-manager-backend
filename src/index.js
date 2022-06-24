@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config({ path: ".env" });
 const app = express();
 require("./db/mongoose");
 
@@ -10,6 +11,6 @@ const task = require("./router/task");
 app.use(user);
 app.use(task);
 
-app.listen(4000, () => {
-  console.log("running");
+app.listen(process.env.PORT, () => {
+  console.log("running on " + `${process.env.PORT}`);
 });
