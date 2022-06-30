@@ -39,7 +39,6 @@ router.get("/tasks", auth, async (req, res) => {
       },
     });
     res.send(req.user.tasks);
-    // res.send(task);
   } catch (err) {
     console.log(err);
     res.status(400).send(err);
@@ -61,7 +60,7 @@ router.get("/task/:id", auth, async (req, res) => {
 
 router.put("/task/:id", auth, async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ["description", "completed"];
+  const allowedUpdates = ["title", "description", "module", "completed"];
   const verifyUpdate = updates.every((update) =>
     allowedUpdates.includes(update)
   );
