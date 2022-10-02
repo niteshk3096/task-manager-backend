@@ -13,5 +13,5 @@ app.use(user);
 app.use(task);
 
 app.listen(process.env.PORT, () => {
-  console.log("running on " + `${process.env.PORT}`);
+  console.log("running on " + `${process.env.PORT}` || 3000);
 });
